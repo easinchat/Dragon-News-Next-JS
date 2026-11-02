@@ -1,6 +1,19 @@
 import { getNewsDetailsById } from "@/lib/data";
 import Link from "next/link";
 
+export const generateMetadata=async ({params}) => {
+    const { id } = await params;
+    const news = await getNewsDetailsById(id);
+
+console.log('params' , params)
+console.log('news' , news)
+
+   return {
+    title: news.title,
+    description: news.details,
+  }
+};
+
 const NewsDetails = async ({ params }) => {
   const { id } = await params;
   const news = await getNewsDetailsById(id);

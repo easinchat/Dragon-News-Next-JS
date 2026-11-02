@@ -3,6 +3,8 @@ import NewsCard from "@/components/homepage/news/NewsCard";
 import RightSidebar from "@/components/homepage/news/RightSidebar";
 import { allcetagory, getNewsByCetagoryId } from "@/lib/data";
 
+
+
 const NewsCategoryPage = async ({ params }) => {
   const { id } = await params;
   console.log(id);
