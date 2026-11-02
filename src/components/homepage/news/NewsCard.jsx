@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const NewsCard = ({ news }) => {
   const { title, thumbnail_url, details, author, rating, total_view } = news;
 
@@ -7,8 +9,8 @@ const NewsCard = ({ news }) => {
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-3">
           <img
-            src={author.img}
-            alt={author.name}
+            src={author?.img}
+            alt={author?.name}
             className="w-10 h-10 rounded-full object-cover"
           />
 
@@ -40,9 +42,11 @@ const NewsCard = ({ news }) => {
       <div className="border-b-2 border-dotted border-blue-300 py-3">
         <p className="text-sm text-gray-500 line-clamp-3">{details}</p>
 
-        <button className="text-orange-500 text-sm font-semibold mt-1">
-          Read More
-        </button>
+        <Link href={`/news/${news._id}`}>
+          <button className="text-orange-500 text-sm font-semibold mt-1">
+            Read More
+          </button>
+        </Link>
       </div>
 
       {/* Rating and Views */}
